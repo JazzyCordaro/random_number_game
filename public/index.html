@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random Number Game</title>
+    <script src="jquery" charset="utf-8"></script>
+    <script src="script.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+  </head>
+  <body>
+    <h1>Choose a Number. Any Number.</h1>
+    <div id="setup">
+    <h2>Setup</h2>
+        <p>Mode</p>
+        <select id="mode" type="option">
+          <option value="" disabled selected>Select Difficulty</option>
+          <option value="easy">Easy: 1-10</option>
+          <option value="medium">Medium: 1-100</option>
+          <option value="hard">Hard: 1-1000</option>
+        </select>
+        <p>Select Player</p>
+        <select id="numPlayers" type="option">
+          <option value="" disabled selected>0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select><br>
+        <button id="rollDice">Go!</button>
+    </div>
+    <div id="playersMode">
+
+    </div>
+  </body>
+</html>

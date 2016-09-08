@@ -1,0 +1,12 @@
+html, body {
+    background-color: lightyellow;
+    color: #444;
+    margin: 0 auto;
+    text-align: center;
+}
+#rollDice {
+  margin: 10px 0px 10px;
+}
+#setup {
+
+}
