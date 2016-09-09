@@ -1,17 +1,33 @@
 html, body {
     /*background-color: lightyellow;*/
     background: #C02425; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #C02425 , #F0CB35); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #C02425 , #F0CB35); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: -webkit-linear-gradient(to left, #C02425 , #F0CB35); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #C02425 , #F0CB35); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #444;
     margin: 0 auto;
     text-align: center;
+    font-family: arial, sans-serif;
 }
-
 #rollDice {
   margin: 10px 0px 10px;
 }
-#setup {
-
+p {
+  margin: 5px;
+}
+input {
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+#restart {
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid #444;
+  border-radius: 5px;
+  font-size: 110%;
+  margin: 10px;
+}
+#restart:hover {
+  background-color: #444;
+  color: rgb(205, 205, 205);
 }
