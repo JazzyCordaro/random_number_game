@@ -17,6 +17,9 @@ var player3In;
 var player4In;
 
 ply1GuessCount = 0;
+ply2GuessCount = 0;
+ply3GuessCount = 0;
+ply4GuessCount = 0;
 
 $(document).ready(function () {
   //click go and initiate game
@@ -42,10 +45,10 @@ $(document).ready(function () {
     }); // end restart click
 });//end doc ready
 
-var selectedDifficulty = function() {
-  if(gameDifficulty === 'medium'){
+var selectedDifficulty = function () {
+  if(gameDifficulty === 'medium') {
     objectToSend.max = 100;
-  }else if(gameDifficulty === 'hard'){
+  }else if(gameDifficulty === 'hard') {
     objectToSend.max = 1000;
     console.log('game difficult is:', gameDifficulty);
     console.log('max is:', objectToSend.max);
@@ -66,20 +69,20 @@ var setDifficulty = function() {
 
 //display #playMode
 var displayGameMode = function () {
-  console.log('in displayGameMode');
+  // console.log('in displayGameMode');
   console.log('numPlayers:', numPlayers);
   switch (numPlayers) {
     case 1:
       $('#playMode').append('<p>Player 1</p><p>Total guesses: <span id="ply1GuessSpan">' + ply1GuessCount + '</span></p><input id="guess1" type="text" value="" placeholder="Guess a #"><br><button id="submitGuesses">Take a guess</button>');
       break;
     case 2:
-      $('#playMode').append('<p>Player 1</p><input id="guess1" type="text" value="" placeholder="Guess a #"><p>Player 2</p><input id="guess2" type="text" value="" placeholder="Guess a #"><br><button id="submitGuesses">Take a guess</button>');
+      $('#playMode').append('<p>Player 1</p><p>Total guesses: <span id="ply1GuessSpan">' + ply1GuessCount + '</span></p><input id="guess1" type="text" value="" placeholder="Guess a #"><p>Player 2</p><p>Total guesses: <span id="ply2GuessSpan">' + ply2GuessCount + '</span></p><input id="guess2" type="text" value="" placeholder="Guess a #"><br><button id="submitGuesses">Take a guess</button>');
       break;
     case 3:
-      $('#playMode').append('<p>Player 1</p><input id="guess1" type="text" value="" placeholder="Guess a #"><p>Player 2</p><input id="guess2" type="text" value="" placeholder="Guess a #"><p>Player 3</p><input id="guess3" type="text" value="" placeholder="Guess a #"><br><button id="submitGuesses">Take a guess</button>');
+      $('#playMode').append('<p>Player 1</p><p>Total guesses: <span id="ply1GuessSpan">' + ply1GuessCount + '</span></p><input id="guess1" type="text" value="" placeholder="Guess a #"><p>Player 2</p><p>Total guesses: <span id="ply2GuessSpan">' + ply2GuessCount + '</span></p><input id="guess2" type="text" value="" placeholder="Guess a #"><p>Player 3</p><p>Total guesses: <span id="ply3GuessSpan">' + ply3GuessCount + '</span></p><input id="guess3" type="text" value="" placeholder="Guess a #"><br><button id="submitGuesses">Take a guess</button>');
       break;
     default:
-      $('#playMode').append('<p>Player 1</p><input id="guess1" type="text" value="" placeholder="Guess a #"><p>Player 2</p><input id="guess2" type="text" value="" placeholder="Guess a #"><p>Player 3</p><input id="guess3" type="text" value="" placeholder="Guess a #"><p>Player 4</p><input id="guess4" type="text" value="" placeholder="Guess a #"><br><button id="submitGuesses">Take a guess</button>');
+      $('#playMode').append('<p>Player 1</p><p>Total guesses: <span id="ply1GuessSpan">' + ply1GuessCount + '</span></p><input id="guess1" type="text" value="" placeholder="Guess a #"><p>Player 2</p><p>Total guesses: <span id="ply2GuessSpan">' + ply2GuessCount + '</span></p><input id="guess2" type="text" value="" placeholder="Guess a #"><p>Player 3</p><p>Total guesses: <span id="ply3GuessSpan">' + ply3GuessCount + '</span></p><input id="guess3" type="text" value="" placeholder="Guess a #"><p>Player 4</p><p>Total guesses: <span id="ply4GuessSpan">' + ply4GuessCount + '</span></p><input id="guess4" type="text" value="" placeholder="Guess a #"><br><button id="submitGuesses">Take a guess</button>');
   } // end switch
 
   $('#submitGuesses').on('click', function () {
@@ -88,6 +91,7 @@ var displayGameMode = function () {
     var player2In = $('#guess2').val();
     var player3In = $('#guess3').val();
     var player4In = $('#guess4').val();
+
     console.log('player1In:', player1In);
     console.log('player2In:', player2In);
     console.log('player3In:', player3In);
@@ -96,11 +100,17 @@ var displayGameMode = function () {
     //update the player guess count
     ply1GuessCount++;
     ply2GuessCount++;
-    ply3uessCount++;
+    ply3GuessCount++;
     ply4GuessCount++;
+    console.log(ply4GuessCount);
 
+    //set the html content for each players total guesses
     $('#ply1GuessSpan').html(ply1GuessCount);
+    $('#ply2GuessSpan').html(ply2GuessCount);
+    $('#ply3GuessSpan').html(ply3GuessCount);
+    $('#ply4GuessSpan').html(ply4GuessCount);
 
+    //reset the input fields
     $('#guess1').val('');
     $('#guess2').val('');
     $('#guess3').val('');
